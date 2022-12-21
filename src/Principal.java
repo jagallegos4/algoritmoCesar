@@ -3,23 +3,11 @@ import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        menu();
         
-        String abecedario= "ABCDEFGHIJKLMNOPQRSTUBWXYZ";
-        String codificado;
-        System.out.println("ab"+abecedario);
-        /*System.out.println("INGRESE UNA FRASE: ");
-        String frase = sc.nextLine();
-        
-        System.out.println("INGRESE EL DESPLAZAMIENTO: ");
-        int desplazamiento = sc.nextInt();
-        
-        codificado=codificar(abecedario,frase,desplazamiento);
-        
-        System.out.println("frase codificada"+codificado);*/
     }
     
-    /*public static String codificar(String abecedario, String texto, int desplazamiento){
+    public static String codificar(String abecedario, String texto, int desplazamiento){
         String textoCodificado = "";
         texto = texto.toUpperCase();
         char caracter;
@@ -59,5 +47,48 @@ public class Principal {
             
         }
         return textodeCodificado;
-    }*/
+    }
+    
+    public static void menu(){
+        Scanner sc = new Scanner(System.in);
+        String abecedario= "ABCDEFGHIJKLMNOPQRSTUBWXYZ";
+        String codificado, decodificado, fraseCodificar, fraseDecodificar;
+        int desplazamiento1, desplazamiento2, opcion;
+        
+        do{
+            System.out.println("..*MENU*..");
+            System.out.println("1. Codificar Frase");
+            System.out.println("2. Decodificar Frase");
+            System.out.println("3. Salir");            
+            System.out.print("Ingrese una opcion: ");
+            opcion=sc.nextInt();
+            switch(opcion){
+                case 1:
+                    sc.nextLine();
+                    System.out.println("INGRESE UNA FRASE: ");
+                    fraseCodificar = sc.nextLine();
+                    System.out.println("INGRESE EL DESPLAZAMIENTO: ");
+                    desplazamiento1 = sc.nextInt();
+                    codificado=codificar(abecedario,fraseCodificar,desplazamiento1);
+                    System.out.println("Frase Codificada: "+codificado);
+                    break;                    
+                case 2:
+                    sc.nextLine();
+                    System.out.println("INGRESE UNA FRASE: ");
+                    fraseDecodificar = sc.nextLine();
+                    System.out.println("INGRESE EL DESPLAZAMIENTO: ");
+                    desplazamiento2 = sc.nextInt();
+                    sc.nextLine();
+                    decodificado=decodificar(abecedario,fraseDecodificar,desplazamiento2);
+                    System.out.println("Frase Decodificada: "+decodificado);
+                    break;
+                case 3:
+                    System.out.println("SALISTE DEL MENU\nGRACIAS");
+                    break;
+                default:
+                    System.out.println("Opcion Incorrecta");
+                break;
+            }
+        }while(opcion!=3);
+    }
 }
